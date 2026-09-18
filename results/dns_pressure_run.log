@@ -1,0 +1,24 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/elias/Projects/strain-vorticity-allocation-audit/.venv, got /home/elias/Projects/strain-vorticity-allocation-audit/continuation_comparator/xi_evolution_audit/../../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/elias/Projects/strain-vorticity-allocation-audit/.venv, got /home/elias/Projects/strain-vorticity-allocation-audit/continuation_comparator/xi_evolution_audit/../../.venv
+DNS: N = 96^3, nu = 0.0025, marching 400 steps to t = 8.0
+   step    0  (2s)
+   step  100  (120s)
+   step  200  (225s)
+   step  300  (329s)
+[PASS] P1 tr H = Lap p = E_W - E_S pointwise (pressure solve verified)   max relative residual 8.25e-16
+[PASS] P2 the derived law reproduces D xi/Dt pointwise in the DNS field   max relative error 1.24e-11 over 883592 grid points
+
+   |pressure| / |local|  quantiles: 10%: 0.152, 25%: 0.445, 50%: 1.260, 75%: 3.652, 90%: 11.653
+   pressure term is larger than the local term at 56.2% of points
+   std(local) = 0.7166, std(pressure) = 0.9431, std(viscous) = 35.7025
+[PASS] P3 the nonlocal term is of the same order as the local term   median |pressure|/|local| = 1.260
+[PASS] P4 restricted Euler flips the sign of D xi/Dt at a substantial fraction of points   sign of D xi/Dt differs with and without H_dev at 20.7% of points
+
+   R^2 of the pressure term on 8^4 bins in (zeta, A, s, log Q): 0.3675
+[PASS] P5 the pressure term is NOT determined by the local coordinates   a saturated 4-way binning of the local state explains only 36.7% of the variance of S:H_dev/E_S
+[PASS] P6 the volume mean of S:H_dev vanishes (integration by parts: d_i d_j S_ij = Lap div u = 0)   <S:H_dev> = +4.112e-18 against <|S:H_dev|> = 1.5022 (ratio 2.74e-18)
+[PASS] P6a <E_S> = <E_W> (the parent audit's homogeneity identity, re-verified)   <E_S> = 2.137477, <E_W> = 2.137477
+[PASS] P6b BUT the WEIGHTED mean <S:H_dev/E_S> does NOT vanish   <S:H_dev/E_S> = -0.01557: the obstruction to the comparator is created entirely by the pointwise weight 1/E_S, not by the pressure term's own mean
+
+ALL CHECKS PASSED
+written: /home/elias/Projects/strain-vorticity-allocation-audit/continuation_comparator/xi_evolution_audit/results/xi_dns_pressure.json

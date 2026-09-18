@@ -1,0 +1,33 @@
+{
+  "gaussian_field": {
+    "n": 524288,
+    "mean_nS2": 3.2307699516727935,
+    "mean_nW2": 3.2307699516727935,
+    "ratio": 1.0,
+    "mean_trA2_normalized": 6.711726236800846e-20,
+    "mean_of_pointwise_a": 0.5261021912815498,
+    "a_from_ratio_of_means": 0.5
+  },
+  "dns": {
+    "t10": {
+      "ratio_nW2_over_nS2": 0.9916625690111495,
+      "a_ratio_of_means": 0.5020930832156448,
+      "mean_pointwise_zeta": -0.1868838463536099
+    },
+    "t4": {
+      "ratio_nW2_over_nS2": 1.007050232911629,
+      "a_ratio_of_means": 0.4982436331697086,
+      "mean_pointwise_zeta": 0.027166627656915365
+    },
+    "t6": {
+      "ratio_nW2_over_nS2": 1.004505332319565,
+      "a_ratio_of_means": 0.4988761984697862,
+      "mean_pointwise_zeta": -0.10513797780726741
+    },
+    "t8": {
+      "ratio_nW2_over_nS2": 0.9846801113831198,
+      "a_ratio_of_means": 0.503859535984921,
+      "mean_pointwise_zeta": -0.18590805520841114
+    }
+  }
+}

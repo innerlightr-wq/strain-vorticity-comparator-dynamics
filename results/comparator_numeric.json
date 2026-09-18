@@ -1,0 +1,153 @@
+{
+  "N1_states": [
+    {
+      "state": "pure extensional strain",
+      "zeta": -1.0,
+      "h": 0.0,
+      "sigma": -1.0,
+      "A": null,
+      "P": 0.0
+    },
+    {
+      "state": "solid-body rotation",
+      "zeta": 1.0,
+      "h": 0.0,
+      "sigma": 1.0,
+      "A": null,
+      "P": 0.0
+    },
+    {
+      "state": "simple shear",
+      "zeta": 0.0,
+      "h": 0.5,
+      "sigma": 1.0,
+      "A": 0.0,
+      "P": 0.0
+    },
+    {
+      "state": "zeta = +1/3 (rotation-rich)",
+      "zeta": 0.33333333333333326,
+      "h": 0.47140452079103173,
+      "sigma": 1.0,
+      "A": 0.8164965809277261,
+      "P": 3.2659863237109046
+    },
+    {
+      "state": "zeta = -1/3 (strain-rich)",
+      "zeta": -0.3333333333333333,
+      "h": 0.4714045207910317,
+      "sigma": -1.0,
+      "A": 0.8164965809277259,
+      "P": 2.3094010767585034
+    }
+  ],
+  "N2": {
+    "n": 1048576,
+    "max_zeta_error_overall": 4.485869605259257e-11,
+    "max_zeta_error_away_from_fold": 2.3599178167188484e-14,
+    "max_magnitude_error": 3.552713678800501e-15,
+    "conditioning": "dzeta/dh = -4h/zeta; the inverse is exact but the fold at zeta = 0 is ill-conditioned"
+  },
+  "N3": {
+    "max_relative_error": 7.952921602221879e-13,
+    "n": 1048576
+  },
+  "N4": {
+    "n_cells": 200,
+    "frac_var_A_within_cells": 0.9997167471182833,
+    "frac_cells_with_both_signs": 1.0
+  },
+  "N5_pairs": [
+    {
+      "case": "omega on e1 (stretching)",
+      "Q": 3.0,
+      "h": 0.47140452079103173,
+      "sigma": -1.0,
+      "zeta": -0.33333333333333326,
+      "A": 0.7071067811865476,
+      "P": 2.0000000000000004,
+      "lambda_ascending": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "cos2_ascending": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case": "omega on e2 (neutral)",
+      "Q": 3.0,
+      "h": 0.47140452079103173,
+      "sigma": -1.0,
+      "zeta": -0.33333333333333326,
+      "A": 0.0,
+      "P": 0.0,
+      "lambda_ascending": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "cos2_ascending": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case": "omega on e3 (compressing)",
+      "Q": 3.0,
+      "h": 0.47140452079103173,
+      "sigma": -1.0,
+      "zeta": -0.33333333333333326,
+      "A": -0.7071067811865476,
+      "P": -2.0000000000000004,
+      "lambda_ascending": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "cos2_ascending": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "N6_branches": [
+    {
+      "zeta": 0.3333333333333333,
+      "h": 0.4714045207910317,
+      "g_plus": 0.769800358919501,
+      "g_minus": 0.5443310539518175,
+      "ratio": 1.4142135623730947,
+      "exp_xi": 1.414213562373095
+    },
+    {
+      "zeta": 0.6,
+      "h": 0.4,
+      "g_plus": 0.7155417527999327,
+      "g_minus": 0.35777087639996635,
+      "ratio": 2.0,
+      "exp_xi": 2.0
+    },
+    {
+      "zeta": 0.8,
+      "h": 0.29999999999999993,
+      "g_plus": 0.5692099788303082,
+      "g_minus": 0.18973665961010272,
+      "ratio": 3.0000000000000004,
+      "exp_xi": 3.0000000000000004
+    }
+  ],
+  "N7_entropy_bits": {
+    "gaussian_field": {
+      "frac_positive": 0.46422481536865234,
+      "H_sigma": 0.9963039361681751,
+      "H_sigma_given_h": 0.9845107144151876
+    }
+  },
+  "failures": []
+}

@@ -1,0 +1,220 @@
+{
+  "n_checks": 49,
+  "n_passed": 49,
+  "sector_equations": {
+    "D E_W/Dt": "P + 2 nu W:Lap W          (NO pressure term)",
+    "D E_S/Dt": "-2 tr(S^3) - (1/2) P - 2 S:H_dev + 2 nu S:Lap S"
+  },
+  "xi_evolution_full_NS": "D xi/Dt = ||S||_F[(1 + e^{2xi}/2) A - s/sqrt(6)] + S:H_dev/||S||_F^2 + nu[ W:Lap W/E_W - S:Lap S/E_S ]",
+  "xi_evolution_euler": "D xi/Dt = ||S||_F[(1 + e^{2xi}/2) A - s/sqrt(6)] + S:H_dev/||S||_F^2",
+  "xi_evolution_restricted_euler": "D xi/Dt = ||S||_F[(1 + e^{2xi}/2) A - s/sqrt(6)]",
+  "omitted_by_restricted_euler": "S:H_dev/||S||_F^2  (the entire nonlocal term)",
+  "pressure_scalar": "S:H_dev = B ||S||_F ||H_dev||_F, B in [-1,1]",
+  "isotropic_pressure_part": "tr H = Lap p = E_W - E_S = Q zeta; drops out of D xi/Dt exactly because tr S = 0",
+  "local_closure_variables": [
+    "||S||_F (or Q)",
+    "xi (or zeta)",
+    "A",
+    "s"
+  ],
+  "cancellation_theorem": "for F(E_S,E_W): DF/Dt is pressure-free iff dF/dE_S = 0, i.e. iff F is a function of the enstrophy alone",
+  "conditioning": "d xi/d zeta = 1/(1-zeta^2) = R = 1/(4h^2); regular at the fold, divergent at the endpoints",
+  "checks": {
+    "W_ij = -(1/2) eps_ijk omega_k": {
+      "passed": true,
+      "detail": ""
+    },
+    "||W||_F^2 = |omega|^2 / 2  (PROJECT CONVENTION, re-verified)": {
+      "passed": true,
+      "detail": "so E_W = ||W||_F^2 is exactly the enstrophy density |omega|^2/2"
+    },
+    "S : W = 0 and Q = E_S + E_W": {
+      "passed": true,
+      "detail": ""
+    },
+    "tr(A^2) = E_S - E_W": {
+      "passed": true,
+      "detail": ""
+    },
+    "xi = artanh(zeta) = (1/2) log(E_W / E_S)": {
+      "passed": true,
+      "detail": "the shared normalization Q cancels, so xi is a pure sector log-ratio"
+    },
+    "sym(A^2) = S^2 + W^2   and   skew(A^2) = SW + WS": {
+      "passed": true,
+      "detail": ""
+    },
+    "S : W^2 = (1/4)[ omega.S omega - |omega|^2 tr S ]": {
+      "passed": true,
+      "detail": "coefficient derived, not assumed"
+    },
+    "incompressible (tr S = 0):  S : W^2 = (1/4) omega . S omega": {
+      "passed": true,
+      "detail": ""
+    },
+    "W : (SW + WS) = -2 S : W^2": {
+      "passed": true,
+      "detail": ""
+    },
+    "W^2 omega = 0 identically": {
+      "passed": true,
+      "detail": "used later for the P-evolution remark"
+    },
+    "for traceless S:  tr(S^3) = 3 det S": {
+      "passed": true,
+      "detail": ""
+    },
+    "tr(S^3) = - s ||S||_F^3 / sqrt(6)   with the project's Lund-Rogers s": {
+      "passed": true,
+      "detail": "s := -3 sqrt(6) det S / ||S||_F^3, exactly as in svcore.lund_rogers_s"
+    },
+    "H = Hess(p) is symmetric, so its antisymmetric part vanishes identically": {
+      "passed": true,
+      "detail": "THIS is why no pressure term can enter the vorticity sector"
+    },
+    "trace of the gradient equation gives the pressure Poisson equation": {
+      "passed": true,
+      "detail": "0 = -tr(A^2) - tr H  =>  Lap p = tr H = -tr(A^2) = E_W - E_S"
+    },
+    "DS/Dt = -(S^2 + W^2) - H + nu Lap S": {
+      "passed": true,
+      "detail": ""
+    },
+    "DW/Dt = -(SW + WS) + nu Lap W   (no pressure)": {
+      "passed": true,
+      "detail": ""
+    },
+    "D E_S/Dt = -2 tr(S^3) - 2 S:W^2 - 2 S:H + 2 nu S:Lap S": {
+      "passed": true,
+      "detail": ""
+    },
+    "D E_W/Dt = 4 S:W^2 + 2 nu W:Lap W  =  P + 2 nu W:Lap W": {
+      "passed": true,
+      "detail": "recovers the standard enstrophy equation; NO pressure term appears"
+    },
+    "D E_S/Dt = -2 tr(S^3) - (1/2) P - 2 S:H + 2 nu S:Lap S  (incompressible)": {
+      "passed": true,
+      "detail": "matches the textbook strain-norm equation coefficient for coefficient"
+    },
+    "only the DEVIATORIC part of H can contract with S": {
+      "passed": true,
+      "detail": "S : (tr H/3) I = (tr H/3) tr S = 0 for incompressible flow"
+    },
+    "THE PRESSURE SOURCE IS THE COMPARATOR ITSELF:  Lap p = Q zeta = Q tanh(xi)": {
+      "passed": true,
+      "detail": "Lap p = tr H = E_W - E_S = Q zeta: the scale times the comparator. The coordinate whose evolution we are studying is, multiplied by the scale, exactly the source of the nonlocal field that obstructs its closure."
+    },
+    "the isotropic part of H is exactly the LOCALLY KNOWN part": {
+      "passed": true,
+      "detail": "tr H = Lap p = E_W - E_S = Q zeta is a pointwise function of the gradient; it is precisely the part that drops out of D xi/Dt"
+    },
+    "the pressure enters D xi/Dt only through the single scalar S : H_dev": {
+      "passed": true,
+      "detail": "vorticity sector: none (H symmetric); strain sector: -2 S:H = -2 S:H_dev"
+    },
+    "CONTRAST: D P/Dt contains omega.H omega, whose isotropic part survives": {
+      "passed": true,
+      "detail": "omega.H omega = omega.H_dev omega + (tr H/3)|omega|^2, and |omega|^2 != 0, so enlarging the scalar family re-introduces the local part of the pressure"
+    },
+    "J:  D xi/Dt = (1/2)[ D log E_W/Dt - D log E_S/Dt ]  (definition, exact)": {
+      "passed": true,
+      "detail": ""
+    },
+    "D log E_W/Dt = 2 ||S||_F A_align  (inviscid part, exact and |omega|-free)": {
+      "passed": true,
+      "detail": "P / E_W = 2 P/|omega|^2 = 2 ||S||_F A: the enstrophy log-rate is exactly twice the effective stretching rate sigma_eff = ||S||_F A"
+    },
+    "D log E_S/Dt = 2 s ||S||/sqrt6 - ||S|| A e^{2xi} - 2 S:H_dev/E_S  (+ viscous)": {
+      "passed": true,
+      "detail": "using E_W/E_S = b/a = e^{2 xi} and tr(S^3) = -s||S||^3/sqrt6"
+    },
+    "ASSEMBLED:  D xi/Dt = ||S||[(1 + e^{2xi}/2) A - s/sqrt6] + S:H_dev/E_S + visc": {
+      "passed": true,
+      "detail": ""
+    },
+    "the stretching coefficient is (1+a)/(2a) = (3-zeta)/(2(1-zeta)) = 1 + e^{2xi}/2": {
+      "passed": true,
+      "detail": ""
+    },
+    "in ||grad u|| form:  D xi/Dt|local = ||grad u||[ A(3-zeta)/(2 sqrt(2(1-zeta))) - (s/sqrt6) sqrt((1-zeta)/2) ]": {
+      "passed": true,
+      "detail": "since ||S||_F = ||grad u||_F sqrt(a)"
+    },
+    "S:H_dev/E_S = B ||H_dev||_F / ||S||_F   with B = S:H_dev/(||S|| ||H_dev||)": {
+      "passed": true,
+      "detail": "structurally parallel to the alignment term A, but its magnitude factor ||H_dev||/||S|| is NONLOCAL and unbounded, whereas |A| <= sqrt(2/3)"
+    },
+    "B is a pure direction cosine in the 5-dim space of traceless symmetric tensors, so |B| <= 1": {
+      "passed": true,
+      "detail": "Cauchy-Schwarz; B = 0 is attainable with ||H_dev|| arbitrarily large"
+    },
+    "EULER (nu = 0):  D xi/Dt = ||S||[(1+e^{2xi}/2)A - s/sqrt6] + S:H_dev/E_S": {
+      "passed": true,
+      "detail": "the viscous pair drops; the pressure obstruction is untouched"
+    },
+    "RESTRICTED EULER sets H_dev = 0 (isotropic pressure Hessian only)": {
+      "passed": true,
+      "detail": "H -> (tr H/3) I = ((E_W - E_S)/3) I, which contracts to zero with S"
+    },
+    "DIFFERENCE (full NS - restricted Euler) = S:H_dev/E_S + nu[...]": {
+      "passed": true,
+      "detail": "the ENTIRE nonlocal obstruction is the term restricted Euler discards"
+    },
+    "=> in restricted Euler, D xi/Dt closes exactly on (||S||, xi, A, s)": {
+      "passed": true,
+      "detail": "this retro-explains the parent audit's 0.44% of restricted-Euler amplification variance unexplained by (zeta, A): it is the s-dependence"
+    },
+    "H: D xi/Dt is NOT a function of (Q, h, xi, A): the local part needs s": {
+      "passed": true,
+      "detail": "d/ds of the local part = -||S||/sqrt6 != 0, so two states with identical (Q, zeta, A) but different strain state s have different D xi/Dt"
+    },
+    "H: and the pressure part needs information outside the gradient tensor": {
+      "passed": true,
+      "detail": "S:H_dev requires the solution of the nonlocal Poisson problem"
+    },
+    "O (THEOREM): for any F(E_S, E_W), the pressure contribution to DF/Dt is exactly (dF/dE_S)(-2 S:H_dev)": {
+      "passed": true,
+      "detail": "because D E_W/Dt has no pressure term at all (H symmetric)"
+    },
+    "O (COROLLARY): DF/Dt is pressure-free  <=>  dF/dE_S = 0  <=>  F depends on the ENSTROPHY ALONE": {
+      "passed": true,
+      "detail": "so no combination xi + alpha log h, log g(zeta), log(2h^{3/2}e^{xi/2}), or any other function of the two sector energies can cancel S:H_dev, unless it discards the strain sector entirely -- and then it is not a comparator"
+    },
+    "O (explicit): D(log h)/Dt = -zeta D xi/Dt, so every combination xi + alpha log h merely rescales the pressure term by (1 - alpha zeta)": {
+      "passed": true,
+      "detail": "h = 1/(2 cosh xi) => d log h/d xi = -tanh xi = -zeta; the factor (1 - alpha zeta) cannot vanish identically on (-1,1)"
+    },
+    "O-ext: the two pressure functionals are S:H_dev and omega.H_dev omega": {
+      "passed": true,
+      "detail": "omega.H omega = (omega omega)_dev : H_dev + (tr H/3)|omega|^2"
+    },
+    "O-ext: S and (omega omega)_dev are generically linearly INDEPENDENT": {
+      "passed": true,
+      "detail": "so no fixed linear combination of the two pressure functionals vanishes identically: enlarging the family to F(E_S, E_W, P) cannot cancel the pressure either"
+    },
+    "O-ext: the exceptional set is S proportional to (omega omega)_dev": {
+      "passed": true,
+      "detail": "S = c[(omega omega) - |omega|^2 I/3] means omega is an eigenvector of an AXISYMMETRIC S -- exactly the Burgers-core state that saturates the parent audit's alignment bound; a codimension-4 set, not a mechanism"
+    },
+    "J: D log P/Dt = 3 D log||grad u||/Dt + (3/2) D log h/Dt + (1/2) D xi/Dt + D log A/Dt": {
+      "passed": true,
+      "detail": "the parent audit's MULTIPLICATIVE factorization of P is the exponential of an ADDITIVE decomposition of rates; xi enters the rate balance with weight 1/2, and through h with weight -(3/2) zeta, i.e. (1/2 - (3/2) zeta) D xi/Dt"
+    },
+    "d xi/d zeta = 1/(1 - zeta^2)": {
+      "passed": true,
+      "detail": ""
+    },
+    "d xi/d zeta = R = 1/(4h^2)  exactly (the Archimedean response coordinate)": {
+      "passed": true,
+      "detail": "the Jacobian of the comparator relative to the allocation IS the framework's own response R"
+    },
+    "at the fold zeta = 0: d xi/d zeta = 1 (regular), while dh/d zeta = 0 (fold)": {
+      "passed": true,
+      "detail": "xi REGULARIZES the fold that made h two-to-one and ill-conditioned"
+    },
+    "at the endpoints |zeta| -> 1: d xi/d zeta -> infinity": {
+      "passed": true,
+      "detail": "xi stretches the endpoints: sector extinction is pushed to |xi| = infinity"
+    }
+  }
+}

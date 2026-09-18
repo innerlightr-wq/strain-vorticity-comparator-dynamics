@@ -1,0 +1,252 @@
+{
+  "n_checks": 56,
+  "n_passed": 56,
+  "exchange_involution": "iota: (||S||^2, ||Omega||^2) -> (||Omega||^2, ||S||^2)  induces  zeta -> -zeta",
+  "symmetric_family": [
+    "h",
+    "D",
+    "R",
+    "eta = 2h",
+    "|zeta|"
+  ],
+  "antisymmetric_family": [
+    "zeta",
+    "L = zeta/2",
+    "chi",
+    "xi = artanh zeta"
+  ],
+  "minimal_comparator": "sigma = sign(zeta) = sign(Q_HWM); range of cardinality 2; exactly one bit is discarded by the altitude family",
+  "inverse_map_zeta": "zeta = sigma * sqrt(1 - 4 h^2)",
+  "inverse_map_magnitudes": "||S||^2 = Q(1-zeta)/2, ||Omega||^2 = Q(1+zeta)/2, |omega|^2 = Q(1+zeta)",
+  "g_factorization": "g(zeta) = 2 h^{3/2} exp(xi/2) = 2 (ab)^{3/4} (b/a)^{1/4}",
+  "production_in_archimedean_coordinates": "P = ||grad u||_F^3 * 2 h^{3/2} * exp(xi/2) * A",
+  "envelope_branch_asymmetry": "g(zeta)/g(-zeta) = exp(xi)",
+  "landmark_from_balance": "d log g_sym/dzeta + d log g_cmp/dzeta = 0  <=>  zeta = 1/3",
+  "alignment_layer_criterion": "forced iff the observable is diagonally but not independently G-invariant",
+  "checks": {
+    "zeta = (||Omega||^2 - ||S||^2)/||grad u||^2 = b - a": {
+      "passed": true,
+      "detail": "the competing components are the two Frobenius energies of the orthogonal decomposition"
+    },
+    "EXCHANGE SYMMETRY: swapping the two components sends zeta -> -zeta": {
+      "passed": true,
+      "detail": "iota : (||S||^2, ||Omega||^2) -> (||Omega||^2, ||S||^2)  induces  zeta -> -zeta"
+    },
+    "SYMMETRIC under zeta -> -zeta:  h": {
+      "passed": true,
+      "detail": ""
+    },
+    "SYMMETRIC under zeta -> -zeta:  D": {
+      "passed": true,
+      "detail": ""
+    },
+    "SYMMETRIC under zeta -> -zeta:  R": {
+      "passed": true,
+      "detail": ""
+    },
+    "SYMMETRIC under zeta -> -zeta:  eta = 2h": {
+      "passed": true,
+      "detail": ""
+    },
+    "SYMMETRIC under zeta -> -zeta:  a*b": {
+      "passed": true,
+      "detail": ""
+    },
+    "SYMMETRIC under zeta -> -zeta:  |zeta|": {
+      "passed": true,
+      "detail": ""
+    },
+    "ANTISYMMETRIC under zeta -> -zeta:  zeta": {
+      "passed": true,
+      "detail": ""
+    },
+    "ANTISYMMETRIC under zeta -> -zeta:  L = zeta/2": {
+      "passed": true,
+      "detail": ""
+    },
+    "ANTISYMMETRIC under zeta -> -zeta:  b - a": {
+      "passed": true,
+      "detail": ""
+    },
+    "ANTISYMMETRIC under zeta -> -zeta:  xi = artanh(zeta)": {
+      "passed": true,
+      "detail": ""
+    },
+    "zeta IS already a comparator in the sense of the hypothesis": {
+      "passed": true,
+      "detail": "C(a,b) = b - a is exactly zeta; the comparator layer is not a new coordinate for this system, it is the coordinate the parent audit already used"
+    },
+    "the Archimedean framework retains the sign indirectly in L, chi and xi": {
+      "passed": true,
+      "detail": "so the loss is confined to the ALTITUDE FAMILY {h, D, R, eta}, not to the Thales point (L, h), which is faithful"
+    },
+    "the fibre of h over h0 is exactly {+zeta0, -zeta0}": {
+      "passed": true,
+      "detail": "h^(-1)(h0) = [-sqrt(1 - 4*h0**2), sqrt(1 - 4*h0**2)]"
+    },
+    "|zeta| = sqrt(1 - 4 h^2)  (so h determines |zeta| bijectively)": {
+      "passed": true,
+      "detail": ""
+    },
+    "EXACT INVERSE: zeta = sign(zeta) * sqrt(1 - 4 h^2)": {
+      "passed": true,
+      "detail": "so (h, sigma) -> zeta is a bijection once sigma(0) is fixed arbitrarily"
+    },
+    "CONDITIONING: dzeta/dh = -4h/zeta, so the inverse blows up at the fold": {
+      "passed": true,
+      "detail": "the sign is restored exactly, but the MAGNITUDE is recovered from h with an amplification 4h/|zeta| that diverges as zeta -> 0: routing a state through the quotient is exactly invertible and numerically unstable near balance"
+    },
+    "minimal cardinality of a separating comparator is exactly 2": {
+      "passed": true,
+      "detail": "every fibre of h with h in (0,1/2) has two points, so any F making (h,F) injective must be injective on each fibre; a two-valued F suffices (sigma = sign zeta, with sign 0 := +1). The altitude family therefore discards exactly ONE BIT per state."
+    },
+    "EXACT INVERSE for the magnitudes: (Q, zeta) -> (||S||^2, ||Omega||^2, |omega|^2)": {
+      "passed": true,
+      "detail": "||S||^2 = Q(1-zeta)/2, ||Omega||^2 = Q(1+zeta)/2, |omega|^2 = Q(1+zeta)"
+    },
+    "but (Q, zeta) does NOT reconstruct S and omega themselves": {
+      "passed": true,
+      "detail": "(S, omega) has 5 SO(3)-invariants; (Q, zeta) fixes only 2 of them (the two magnitudes); see D and E"
+    },
+    "G(zeta) = G(-zeta) for every G in the altitude family": {
+      "passed": true,
+      "detail": "equivalence classes are the orbits {zeta, -zeta} of the involution iota"
+    },
+    "the quotient map is zeta -> |zeta|, and the altitude family factors through it": {
+      "passed": true,
+      "detail": ""
+    },
+    "(G, sigma) SEPARATES the classes: injective for every G in the family": {
+      "passed": true,
+      "detail": "explicit left inverse exhibited above"
+    },
+    "COUNTEREXAMPLE: an even 'comparator' repairs nothing": {
+      "passed": true,
+      "detail": "e.g. C = zeta^2 or C = |zeta| leaves (h, C) constant on each class"
+    },
+    "pure strain and solid-body rotation are identified by the altitude family": {
+      "passed": true,
+      "detail": "both have h = 0, D = 1/2, R = oo; sigma = -1 vs +1 separates them"
+    },
+    "the balanced state is its own class": {
+      "passed": true,
+      "detail": "zeta = 0 is the unique fixed point of iota, so no comparator is needed there"
+    },
+    "P = Q^{3/2} g(zeta) A  (parent identity, re-verified here)": {
+      "passed": true,
+      "detail": ""
+    },
+    "(Q, |zeta|, sigma) is equivalent to (Q, zeta)": {
+      "passed": true,
+      "detail": "so the question is exactly: does (Q, zeta) determine P?  It does not."
+    },
+    "NO: P is not a function of (Q, zeta) -- A is free in [-sqrt(2/3), sqrt(2/3)]": {
+      "passed": true,
+      "detail": "dP/dA = Q^{3/2} g(zeta) > 0 for zeta in (-1,1), so P varies over the full interval +- sqrt(2/3) Q^{3/2} g(zeta) at fixed (Q, zeta)"
+    },
+    "A = sum_i (lambda_i/||S||_F) cos^2(theta_i) is the only thing that moves": {
+      "passed": true,
+      "detail": "the independent action moves the direction cosines, not the magnitudes"
+    },
+    "ONE scalar suffices: P = Q^{3/2} g(zeta) A": {
+      "passed": true,
+      "detail": "given (Q, zeta), the map A -> P is affine and injective, so a single real coordinate is both necessary (P varies continuously) and sufficient"
+    },
+    "A is canonical: any sufficient scalar F is a fibre-preserving reparameterization of A": {
+      "passed": true,
+      "detail": "if P = Phi(Q, zeta, F) then, at fixed (Q, zeta), F determines A and conversely; so F = psi_{Q,zeta}(A) with psi injective"
+    },
+    "A is NOT sufficient for the DYNAMICS, only for instantaneous P": {
+      "passed": true,
+      "detail": "parent audit (restricted Euler T3): states identical in (Q, zeta, A, P) but with opposite strain-state s diverge; 0.44% of amplification variance is unexplained by (zeta, A)"
+    },
+    "rapidity chart: h = 1/(2 cosh xi) and zeta = tanh xi": {
+      "passed": true,
+      "detail": "xi = artanh zeta is the Archimedean note's own rapidity coordinate"
+    },
+    "g is NOT even: g(zeta) != g(-zeta)": {
+      "passed": true,
+      "detail": "g(1/3) = 0.769800 vs g(-1/3) = 0.544331"
+    },
+    "g(zeta) g(-zeta) = 4 h^3   (the symmetric invariant)": {
+      "passed": true,
+      "detail": ""
+    },
+    "g(zeta) / g(-zeta) = exp(xi)   (the pure comparator)": {
+      "passed": true,
+      "detail": "log of the ratio is exactly 2 xi: an odd function of zeta"
+    },
+    "EXACT FACTORIZATION:  g(zeta) = 2 h^{3/2} exp(xi/2)": {
+      "passed": true,
+      "detail": "g_sym = 2 h^{3/2} is even in zeta; g_cmp = exp(xi/2) obeys g_cmp(zeta) g_cmp(-zeta) = 1"
+    },
+    "equivalently  g = 2 a^{1/2} b = 2 (ab)^{3/4} (b/a)^{1/4}": {
+      "passed": true,
+      "detail": "the split is the monomial identity a^p b^q = (ab)^{(p+q)/2} (b/a)^{(q-p)/2} with (p,q) = (1/2,1): symmetric exponent 3/4, antisymmetric exponent 1/4"
+    },
+    "UNIQUENESS of the factorization": {
+      "passed": true,
+      "detail": "g > 0 on (-1,1), so log g splits uniquely into even + odd parts; exponentiating gives the unique g = (even) x (exp of odd)"
+    },
+    "the antisymmetric exponent is nonzero (1/4)": {
+      "passed": true,
+      "detail": "this is the exact reason no function of the altitude family can equal g"
+    },
+    "d(log g)/dzeta = (1 - 3 zeta) / (2 (1 - zeta^2))": {
+      "passed": true,
+      "detail": ""
+    },
+    "the symmetric factor alone is maximal at the apex zeta = 0": {
+      "passed": true,
+      "detail": "d(log g_sym)/dzeta = -3 zeta / (2(1-zeta^2))"
+    },
+    "the comparator factor alone is strictly increasing": {
+      "passed": true,
+      "detail": "d(log g_cmp)/dzeta = 1/(2(1-zeta^2)) > 0"
+    },
+    "their balance fixes the landmark zeta = 1/3": {
+      "passed": true,
+      "detail": "magnitude pulls toward the apex, comparator pushes toward rotation; the parent audit's zeta = 1/3 is exactly where the two log-derivatives cancel"
+    },
+    "PRODUCTION IN ARCHIMEDEAN COORDINATES: P = ||grad u||_F^3 * 2 h^{3/2} * exp(xi/2) * A": {
+      "passed": true,
+      "detail": "scale x altitude-magnitude x rapidity-comparator x alignment, exactly"
+    },
+    "the branch asymmetry of the production envelope is exactly exp(xi)": {
+      "passed": true,
+      "detail": "using the symmetric geometry alone overestimates the smaller branch's sharp bound by exp(|xi|)"
+    },
+    "the involution is iota(zeta) = -zeta, i.e. exchange of the two sectors": {
+      "passed": true,
+      "detail": ""
+    },
+    "the Thales POINT (L, h) is faithful, not a quotient": {
+      "passed": true,
+      "detail": "L = zeta/2 recovers zeta; the semicircle is a section, not the quotient"
+    },
+    "the quotient is the projection of the semicircle onto its altitude axis": {
+      "passed": true,
+      "detail": "reflection of the semicircle about its vertical axis; the altitude family {h, D, R, eta} are exactly the functions invariant under it"
+    },
+    "so the correct state object is (Thales point) OR equivalently (h, sigma)": {
+      "passed": true,
+      "detail": "(altitude, branch sign) is a faithful chart on the double cover; the framework's own chi / xi already carry the branch"
+    },
+    "the quotient is a manifold-with-boundary branch fold, not a singular quotient": {
+      "passed": true,
+      "detail": "dh/dzeta = 0 at the fixed point zeta = 0: the two sheets meet tangentially at the apex, which is why h loses the sign smoothly rather than abruptly"
+    },
+    "Dxi/Dt = (1/2) [ d_t log ||Omega||^2  -  d_t log ||S||^2 ]": {
+      "passed": true,
+      "detail": "the comparator's material derivative is exactly half the DIFFERENCE of the two sectors' logarithmic growth rates -- additively separable in the two sectors, which no even coordinate can be; this is the concrete next test"
+    },
+    "by contrast dh/dt carries a factor that vanishes at the fold": {
+      "passed": true,
+      "detail": "dh/dzeta = -zeta/(2 sqrt(1-zeta^2)) -> 0 at zeta = 0, so the symmetric coordinate is insensitive to motion through balance"
+    },
+    "P is diagonally invariant but not independently invariant": {
+      "passed": true,
+      "detail": "R omega . (R S R^T)(R omega) = omega . S omega, whereas rotating omega alone changes it -- this is the exact content of the insufficiency"
+    }
+  }
+}

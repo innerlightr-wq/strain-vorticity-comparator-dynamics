@@ -1,0 +1,135 @@
+{
+  "n_checks": 30,
+  "n_passed": 30,
+  "pressure_contribution_general": "-2 * integral( dPhi/dE_S * S:H_dev ) dx",
+  "Phi_S_for_E_S_alpha_xi": "E_S^(alpha-1) * (alpha*xi - 1/2)",
+  "alpha_1_pressure_term": "-2 * integral( xi * S:H_dev ) dx   (does NOT vanish)",
+  "alpha_theorem": "no real alpha makes int E_S^alpha xi dx pressure-free",
+  "weight_identity": "int w S:H dx = int p [ S:grad grad w + grad w . Lap u ] dx",
+  "cancellation_condition": "Phi_{E_S} = constant  <=>  Phi = c E_S + psi(E_W)",
+  "collapse": "with int E_S = int E_W, every pressure-free J equals int psitilde(E_W) dx: a functional of the enstrophy density alone",
+  "viscous_of_surviving_class": "-nu int psitilde''|grad E_W|^2 - 2 nu int psitilde' ||grad W||^2; dissipative iff psitilde is nondecreasing and convex",
+  "euler_of_surviving_class": "d/dt int psitilde(E_W) = int psitilde'(E_W) P dx",
+  "checks": {
+    "div u = 0 by construction": {
+      "passed": true,
+      "detail": ""
+    },
+    "tr(grad u ^2) = E_S - E_W": {
+      "passed": true,
+      "detail": "so the pressure Poisson source is Lap p = -tr(A^2) = E_W - E_S"
+    },
+    "d_j S_ij = (1/2) Lap u_i   (uses div u = 0)": {
+      "passed": true,
+      "detail": ""
+    },
+    "d_i d_j S_ij = Lap(div u) = 0": {
+      "passed": true,
+      "detail": "THIS is the identity behind the unweighted cancellation"
+    },
+    "d_i d_j (w S_ij) = S : grad grad w  +  grad w . Lap u": {
+      "passed": true,
+      "detail": "hence  int w S:H dx = int p [ S:grad grad w + grad w . Lap u ] dx"
+    },
+    "=> the pressure cancellation survives EXACTLY for spatially constant w": {
+      "passed": true,
+      "detail": "both surviving terms carry at least one derivative of w"
+    },
+    "a state-dependent weight is spatially variable wherever the state is": {
+      "passed": true,
+      "detail": "w = W(E_S,E_W) has grad w = W_S grad E_S + W_W grad E_W, which vanishes only on fields with spatially uniform sector energies"
+    },
+    "advection integrates away: u.grad Phi = div(u Phi) when div u = 0": {
+      "passed": true,
+      "detail": "so d/dt int Phi dx = int DPhi/Dt dx on the periodic domain"
+    },
+    "Phi = E_S^alpha xi  =>  dPhi/dE_S = E_S^(alpha-1) (alpha xi - 1/2)": {
+      "passed": true,
+      "detail": "the SECOND term comes from the weight differentiating the xi inside it"
+    },
+    "pressure contribution to dJ/dt = -2 int (dPhi/dE_S) S:H_dev dx": {
+      "passed": true,
+      "detail": "because D E_W/Dt is pressure-blind and D E_S/Dt contributes -2 S:H_dev"
+    },
+    "alpha = 1:  dPhi/dE_S = xi - 1/2   (NOT constant)": {
+      "passed": true,
+      "detail": ""
+    },
+    "=> pressure contribution at alpha = 1 is  -2 int xi S:H_dev dx  (the constant part alone cancels)": {
+      "passed": true,
+      "detail": "-2 int (xi - 1/2) S:H = -2 int xi S:H + int S:H = -2 int xi S:H, and the surviving term does NOT vanish (verified numerically in weighted_numeric.py)"
+    },
+    "VERDICT B: the alpha = 1 weighting does NOT cancel the pressure": {
+      "passed": true,
+      "detail": "the previous audit's heuristic ignored the product-rule term xi D E_S/Dt; outcome (3) of the brief: a new weighted pressure term xi S:H_dev survives"
+    },
+    "dPhi/dE_S depends on xi unless alpha = 0": {
+      "passed": true,
+      "detail": "d/dE_W of E_S^(a-1)(a xi - 1/2) = a E_S^(a-1)/(2 E_W), zero iff alpha = 0"
+    },
+    "alpha = 0 gives dPhi/dE_S = -1/(2 E_S), still NOT constant": {
+      "passed": true,
+      "detail": ""
+    },
+    "THEOREM (C): no real alpha makes E_S^alpha xi pressure-free": {
+      "passed": true,
+      "detail": "constancy of E_S^(alpha-1)(alpha xi - 1/2) in the independent variables (E_S, xi) forces alpha = 0 from the xi-derivative and then fails in E_S"
+    },
+    "pressure part of dJ/dt = -2 int Phi_{E_S} S:H_dev dx  (exact)": {
+      "passed": true,
+      "detail": "only D E_S/Dt carries H_dev, with coefficient -2"
+    },
+    "SUFFICIENCY: Phi_{E_S} = const c  =>  pressure part = -2c int S:H_dev = 0": {
+      "passed": true,
+      "detail": "uses the unweighted identity established in section I"
+    },
+    "Phi_{E_S} = c  <=>  Phi = c E_S + psi(E_W)": {
+      "passed": true,
+      "detail": "integrate the condition in E_S; psi is an arbitrary function of E_W alone"
+    },
+    "COLLAPSE: on the periodic incompressible domain int E_S dx = int E_W dx, so J = c int E_W + int psi(E_W) = int psitilde(E_W) dx": {
+      "passed": true,
+      "detail": "every exactly pressure-free member of the class is a functional of the ENSTROPHY DENSITY ALONE"
+    },
+    "=> no pressure-free member retains comparator information": {
+      "passed": true,
+      "detail": "Phi = c E_S + psi(E_W) is additively separated: it cannot see the joint (E_S,E_W) pairing, i.e. the pointwise ratio xi, at all"
+    },
+    "consistency: the pressure-free class contains exactly the classical vorticity functionals": {
+      "passed": true,
+      "detail": "D omega/Dt = S omega has no pressure term, so ANY functional of omega alone is pressure-free; the theorem says the converse holds within this class"
+    },
+    "the denominator int E_S dx IS pressure-free (Phi = E_S, Phi_{E_S} = 1)": {
+      "passed": true,
+      "detail": ""
+    },
+    "but the numerator int E_S xi dx is NOT (section B)": {
+      "passed": true,
+      "detail": ""
+    },
+    "=> d/dt <xi>_{E_S} has pressure part  (-2 int xi S:H_dev dx)/(int E_S dx)": {
+      "passed": true,
+      "detail": "normalization cannot repair a pressure-carrying numerator; numerator and normalized statistic are classified separately, and both fail"
+    },
+    "W : Lap W = (1/2) Lap E_W - ||grad W||^2   (differential identity)": {
+      "passed": true,
+      "detail": ""
+    },
+    "viscous part of d/dt int psitilde(E_W) = -nu int psitilde'' |grad E_W|^2 - 2 nu int psitilde' ||grad W||^2": {
+      "passed": true,
+      "detail": "from 2 nu int psitilde'(E_W) W:Lap W and one integration by parts; sign-definite (dissipative) iff psitilde' >= 0 and psitilde'' >= 0"
+    },
+    "psitilde(E) = E (the enstrophy) gives exactly -2 nu int ||grad W||^2 <= 0": {
+      "passed": true,
+      "detail": "the classical palinstrophy dissipation; nothing new"
+    },
+    "nu = 0:  d/dt int psitilde(E_W) dx = int psitilde'(E_W) P dx": {
+      "passed": true,
+      "detail": "P = omega.S omega; for psitilde(E) = E^{p/2} this is the standard evolution of the vorticity L^p norms"
+    },
+    "not conserved, not monotone, sign-indefinite in general": {
+      "passed": true,
+      "detail": "P is not sign-definite; positivity of <P> is an empirical regularity of developed turbulence, not a theorem (parent audit, F12)"
+    }
+  }
+}

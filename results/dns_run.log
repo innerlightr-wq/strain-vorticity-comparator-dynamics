@@ -1,0 +1,67 @@
+DNS: N = 96^3, nu = 0.0025 (Re = 400), dt = 0.02, t_end = 12.0, k_max = 32
+    step    0  t =  0.020  E = 0.125000  Z = 0.3750  (1s)
+    step   50  t =  1.020  E = 0.123073  Z = 0.4096  (64s)
+    step  100  t =  2.020  E = 0.120741  Z = 0.5425  (126s)
+    step  150  t =  3.020  E = 0.117437  Z = 0.8006  (190s)
+  t =  4.00: snapshot analysed (<P> = 0.8616, <eps_w> = 0.3371, partial corr(A, g_tot | zeta, scale) = +0.0075)
+    step  200  t =  4.020  E = 0.112497  Z = 1.2085  (254s)
+    step  250  t =  5.020  E = 0.104947  Z = 1.8308  (317s)
+  t =  6.00: snapshot analysed (<P> = 1.3510, <eps_w> = 1.2365, partial corr(A, g_tot | zeta, scale) = +0.0142)
+    step  300  t =  6.020  E = 0.094742  Z = 2.1655  (383s)
+  t =  7.00: seeded 40000 Lagrangian particles
+    step  350  t =  7.020  E = 0.083802  Z = 2.1841  (447s)
+  t =  8.00: snapshot analysed (<P> = 1.4208, <eps_w> = 1.3903, partial corr(A, g_tot | zeta, scale) = -0.0118)
+    step  400  t =  8.020  E = 0.073021  Z = 2.1375  (517s)
+  t =  8.50: Lagrangian window closed
+    step  450  t =  9.020  E = 0.062125  Z = 2.1852  (582s)
+  t = 10.00: snapshot analysed (<P> = 1.1011, <eps_w> = 1.4874, partial corr(A, g_tot | zeta, scale) = +0.0095)
+    step  500  t = 10.020  E = 0.051915  Z = 1.8653  (661s)
+    step  550  t = 11.020  E = 0.043443  Z = 1.5448  (729s)
+
+  resolution: peak dissipation 0.01103 at t = 8.76, eta = 0.0345, k_max * eta = 1.104
+[PASS] DNS is adequately resolved (k_max * eta >= 1)   k_max * eta = 1.104 (>= 1 is the usual adequacy criterion)
+
+--- D1: at matched (zeta, scale), does A predict the material rate? ---
+  t4: partial corr(A, g_tot) = +0.0075, partial corr(A, g_P) = +0.9485, partial corr(A, g_visc) = +0.0075, delta R^2 = 0.0001
+      <P> = +0.86156, <eps_w> = 0.33708, <T_nu> = -1.13e-03, <Dt e> = +0.52335; P > 0 at 52.6% of points, P > 0 but Dt e < 0 at 12.0%
+      A-quartile 0: <A> = -0.3882  <g_tot> = -75.27466  <g_P> = -0.53975  <g_visc> = -74.73491  Dt e > 0 for 8.5%
+      A-quartile 1: <A> = -0.1194  <g_tot> = -792.51594  <g_P> = -0.16719  <g_visc> = -792.34876  Dt e > 0 for 33.9%
+      A-quartile 2: <A> = +0.0663  <g_tot> = -658.36341  <g_P> = +0.07734  <g_visc> = -658.44075  Dt e > 0 for 57.6%
+      A-quartile 3: <A> = +0.3310  <g_tot> = -11.91045  <g_P> = +0.42959  <g_visc> = -12.34004  Dt e > 0 for 73.4%
+  t6: partial corr(A, g_tot) = +0.0142, partial corr(A, g_P) = +0.9691, partial corr(A, g_visc) = +0.0141, delta R^2 = 0.0002
+      <P> = +1.35102, <eps_w> = 1.23647, <T_nu> = -1.01e-03, <Dt e> = +0.11354; P > 0 at 60.8% of points, P > 0 but Dt e < 0 at 26.5%
+      A-quartile 0: <A> = -0.3220  <g_tot> = -95.49189  <g_P> = -0.47424  <g_visc> = -95.01765  Dt e > 0 for 14.6%
+      A-quartile 1: <A> = -0.0821  <g_tot> = -89.17189  <g_P> = -0.11483  <g_visc> = -89.05706  Dt e > 0 for 31.8%
+      A-quartile 2: <A> = +0.1053  <g_tot> = -22.28698  <g_P> = +0.16030  <g_visc> = -22.44728  Dt e > 0 for 47.2%
+      A-quartile 3: <A> = +0.3602  <g_tot> = -18.14671  <g_P> = +0.52620  <g_visc> = -18.67291  Dt e > 0 for 67.4%
+  t8: partial corr(A, g_tot) = -0.0118, partial corr(A, g_P) = +0.9744, partial corr(A, g_visc) = -0.0118, delta R^2 = 0.0001
+      <P> = +1.42084, <eps_w> = 1.39032, <T_nu> = -8.11e-04, <Dt e> = +0.02971; P > 0 at 59.2% of points, P > 0 but Dt e < 0 at 28.6%
+      A-quartile 0: <A> = -0.3860  <g_tot> = -46.01871  <g_P> = -0.59420  <g_visc> = -45.42452  Dt e > 0 for 13.3%
+      A-quartile 1: <A> = -0.0615  <g_tot> = -13.72546  <g_P> = -0.10052  <g_visc> = -13.62494  Dt e > 0 for 28.3%
+      A-quartile 2: <A> = +0.1456  <g_tot> = -3624.38605  <g_P> = +0.22130  <g_visc> = -3624.60734  Dt e > 0 for 43.2%
+      A-quartile 3: <A> = +0.3933  <g_tot> = -1133.80906  <g_P> = +0.59854  <g_visc> = -1134.40761  Dt e > 0 for 63.5%
+  t10: partial corr(A, g_tot) = +0.0095, partial corr(A, g_P) = +0.9723, partial corr(A, g_visc) = +0.0095, delta R^2 = 0.0001
+      <P> = +1.10114, <eps_w> = 1.48740, <T_nu> = -3.71e-04, <Dt e> = -0.38662; P > 0 at 62.5% of points, P > 0 but Dt e < 0 at 30.2%
+      A-quartile 0: <A> = -0.3718  <g_tot> = -1234.46291  <g_P> = -0.56800  <g_visc> = -1233.89491  Dt e > 0 for 12.3%
+      A-quartile 1: <A> = -0.0183  <g_tot> = -8844.04989  <g_P> = -0.02475  <g_visc> = -8844.02514  Dt e > 0 for 28.3%
+      A-quartile 2: <A> = +0.1957  <g_tot> = -90.78628  <g_P> = +0.30237  <g_visc> = -91.08865  Dt e > 0 for 45.8%
+      A-quartile 3: <A> = +0.4370  <g_tot> = -42.68315  <g_P> = +0.66274  <g_visc> = -43.34590  Dt e > 0 for 66.1%
+[PASS] D1 the exact identity g_P = A sqrt(2(1-zeta)) holds pointwise in the DNS   max error 4.26e-15
+[PASS] D1 the PROBABILITY of net enstrophy growth increases monotonically with A inside matched (zeta, scale) cells   t4: 8%->34%->58%->73%; t6: 15%->32%->47%->67%; t8: 13%->28%->43%->64%; t10: 12%->28%->46%->66%
+  NOTE: the Pearson partial correlation of A with the PER-ENSTROPHY rate is near zero
+        at late times because that normalization is singular as e_omega -> 0.
+        src/dns_reanalysis.py repeats the test with D_t e / ||grad u||_F^3 and with
+        rank statistics; see RESULTS.md.
+[PASS] D1 CONTROL: production alone does not determine net enstrophy growth   a nontrivial fraction of points have P > 0 and D_t e_omega < 0
+
+--- D2: Lagrangian enstrophy amplification over a finite window ---
+  window t = 7.00 -> 8.50, 40000 particles
+    A-quartile 0: <A> = -0.3209  <ln e(T)/e(0)> = -0.43060  (median -0.56491, growing: 23.9%)
+    A-quartile 1: <A> = -0.0620  <ln e(T)/e(0)> = -0.19901  (median -0.28058, growing: 34.4%)
+    A-quartile 2: <A> = +0.1228  <ln e(T)/e(0)> = -0.05389  (median -0.08235, growing: 45.6%)
+    A-quartile 3: <A> = +0.3177  <ln e(T)/e(0)> = +0.11781  (median +0.15554, growing: 57.5%)
+  partial corr(A, amplification | zeta, scale) = +0.2980, delta R^2 = 0.0810
+[PASS] D2 at matched (zeta, scale), initial A predicts finite-time Lagrangian enstrophy amplification   partial corr +0.2980; quartile means [-0.4306, -0.199, -0.0539, 0.1178]
+
+ALL CHECKS PASSED
+written: /home/elias/Projects/strain-vorticity-allocation-audit/results/dns_taylor_green.json

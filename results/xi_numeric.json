@@ -1,0 +1,157 @@
+{
+  "M1_M4": {
+    "n": 200000,
+    "max_rel_error_full_law": 1.681134722660433e-11,
+    "median_abs_local": 0.7078995800055123,
+    "median_abs_pressure": 0.32511861596863434
+  },
+  "M5_M6": {
+    "M5": {
+      "zeta": 0.19999999999999973,
+      "A": 0.30000000000000016,
+      "s_I": -0.9999999999999998,
+      "s_II": 0.9999999999999996,
+      "dxi_I": 0.590238044064841,
+      "dxi_II": 0.07384026457051902
+    },
+    "M6": {
+      "local": 0.590238044064841,
+      "pressure_I": 0.0,
+      "pressure_II": 0.6127947925257975
+    }
+  },
+  "M7": {
+    "dt": 1e-05,
+    "max_abs_error": 2.463932569085614e-08,
+    "median_rel_error": 1.2731438379612732e-10
+  },
+  "K_special_states": [
+    {
+      "state": "balanced, omega on e_max",
+      "zeta": 0.0,
+      "xi": 0.0,
+      "h": 0.5,
+      "A": 0.7071067811865477,
+      "s": -5.51091059616312e-16,
+      "local": 0.7500000000000003,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": 0.7500000000000003,
+      "note": "most extensional eigenvector; A attains lambda_max/||S||"
+    },
+    {
+      "state": "balanced, omega on e_int",
+      "zeta": 0.0,
+      "xi": 0.0,
+      "h": 0.5,
+      "A": -7.850462293418875e-17,
+      "s": -5.51091059616312e-16,
+      "local": 7.581955896185022e-17,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": 7.581955896185022e-17,
+      "note": "intermediate eigenvector; here lambda_int = 0 so A = 0"
+    },
+    {
+      "state": "balanced, omega on e_min",
+      "zeta": 0.0,
+      "xi": 0.0,
+      "h": 0.5,
+      "A": -0.7071067811865474,
+      "s": -5.51091059616312e-16,
+      "local": -0.7499999999999997,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": -0.7499999999999997,
+      "note": "most compressive eigenvector; A attains lambda_min/||S||"
+    },
+    {
+      "state": "strain-rich zeta = -0.8",
+      "zeta": -0.8,
+      "xi": -1.09861228866811,
+      "h": 0.2999999999999999,
+      "A": 0.5000000000000001,
+      "s": -1.0,
+      "local": 0.8879922974807354,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": 0.8879922974807354,
+      "note": "approaching the pure-strain endpoint"
+    },
+    {
+      "state": "rotation-rich zeta = +0.8",
+      "zeta": 0.8,
+      "xi": 1.0986122886681098,
+      "h": 0.30000000000000004,
+      "A": 0.4999999999999999,
+      "s": -1.0,
+      "local": 0.998725801419885,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": 0.998725801419885,
+      "note": "approaching the pure-rotation endpoint; note the e^{2xi} amplification"
+    },
+    {
+      "state": "balanced, H_dev = 0",
+      "zeta": -2.2204460492503126e-16,
+      "xi": -2.2204460492503136e-16,
+      "h": 0.5,
+      "A": 0.5,
+      "s": -1.0000000000000004,
+      "local": 0.8190052204847238,
+      "pressure": 0.0,
+      "B": 0.0,
+      "total": 0.8190052204847238,
+      "note": "restricted-Euler state"
+    },
+    {
+      "state": "balanced, H_dev aligned with S",
+      "zeta": -2.2204460492503126e-16,
+      "xi": -2.2204460492503136e-16,
+      "h": 0.5,
+      "A": 0.5,
+      "s": -1.0000000000000004,
+      "local": 0.8190052204847238,
+      "pressure": 1.4142135623730947,
+      "B": 1.0000000000000002,
+      "total": 2.2332187828578185,
+      "note": "B = +1, maximal coupling"
+    },
+    {
+      "state": "balanced, H_dev eigen-permuted",
+      "zeta": -2.2204460492503126e-16,
+      "xi": -2.2204460492503136e-16,
+      "h": 0.5,
+      "A": 0.5,
+      "s": -1.0000000000000004,
+      "local": 0.8190052204847238,
+      "pressure": -0.7071067811865474,
+      "B": -0.5000000000000001,
+      "total": 0.11189843929817644,
+      "note": "same spectrum, permuted eigenframe: |B| < 1"
+    }
+  ],
+  "endpoint_limits": {
+    "zeta_to_minus_1": "coordinate singularity of xi; D xi/Dt has a finite limit ||S||[A - s/sqrt6] + S:H_dev/E_S along any fixed omega direction",
+    "zeta_to_plus_1": "genuine divergence: ||S|| e^{2xi} A = (E_W/||S||) A -> infinity as the strain sector is extinguished at fixed enstrophy"
+  },
+  "L_conditioning": {
+    "0.0": {
+      "dxi_dzeta": 1.0,
+      "dh_dzeta": -0.0
+    },
+    "0.5": {
+      "dxi_dzeta": 1.3333333333333333,
+      "dh_dzeta": -0.2886751345948129
+    },
+    "0.9": {
+      "dxi_dzeta": 5.263157894736843,
+      "dh_dzeta": -1.0323708024175282
+    },
+    "0.99": {
+      "dxi_dzeta": 50.25125628140696,
+      "dh_dzeta": -3.5089619647912604
+    }
+  },
+  "failures": []
+}

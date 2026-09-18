@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the published strain-vorticity paper it
+  extends (see `preferred-citation`), and, if you refer to the audit itself, this
+  repository. The DOI 10.5281/zenodo.22675817 identifies the published paper, not
+  this repository; this repository has no DOI of its own.
+title: Strain-Vorticity Comparator Dynamics
+abstract: >-
+  Symbolic verification, numerical validation and adversarial audit of a coordinate
+  framework for the local strain-rotation balance of incompressible three-dimensional
+  flow, extending the strain-vorticity research program of the paper deposited at
+  10.5281/zenodo.22675817. Establishes that the binary-partition altitude family is
+  an exact two-to-one function of the signed allocation coordinate zeta and therefore
+  discards one bit of orientation per state; that the exact enstrophy production
+  factorizes as scale x allocation x alignment,
+  P = ||grad u||^3 * 2 h^{3/2} * exp(xi/2) * A, with the sharp pointwise bound
+  4 sqrt(2)/9 attained at zeta = 1/3; that the material evolution of the rapidity
+  comparator xi = artanh(zeta) separates the local dynamics from the nonlocal
+  pressure Hessian exactly, leaving the single deviatoric scalar S:H_dev/E_S; and,
+  as a negative result within the tested local two-sector functional class and under
+  a stated nondegeneracy condition, that exact elimination of the deviatoric
+  pressure-Hessian contribution forces the functional to reduce effectively to a
+  vorticity/enstrophy-only class. Includes 179 symbolic checks, exact
+  counterexamples, random-field ensembles, restricted-Euler trajectories and 96^3
+  direct numerical simulation checks. No claim of Navier-Stokes global regularity is
+  made, and no new estimate, inequality, monotonicity result or closure theorem is
+  claimed.
+type: software
+authors:
+  - family-names: "De Jesús"
+    given-names: Elias
+    orcid: "https://orcid.org/0009-0007-0190-9143"
+    email: dejesuselias10@gmail.com
+    affiliation: Independent Researcher
+version: 1.0.0
+repository-code: "https://github.com/innerlightr-wq/strain-vorticity-comparator-dynamics"
+license: Apache-2.0
+license-url: "https://github.com/innerlightr-wq/strain-vorticity-comparator-dynamics/blob/main/LICENSE-CONTENT.md"
+keywords:
+  - strain-rate tensor
+  - vorticity
+  - vortex stretching
+  - enstrophy production
+  - velocity-gradient invariants
+  - pressure Hessian
+  - restricted Euler
+  - Q-criterion
+  - binary partition geometry
+  - symbolic verification
+  - reproducibility
+  - negative result
+preferred-citation:
+  type: article
+  title: >-
+    Strain-Vorticity Interaction and Rotational Coherence: From Magnitude
+    Comparison to Enstrophy Production
+  authors:
+    - family-names: "De Jesús"
+      given-names: Elias
+      orcid: "https://orcid.org/0009-0007-0190-9143"
+  year: 2026
+  publisher:
+    name: Zenodo
+  doi: "10.5281/zenodo.22675817"
+  url: "https://doi.org/10.5281/zenodo.22675817"
+  notes: >-
+    The published strain-vorticity paper that this repository extends and audits.
+    This DOI identifies that paper; it is not a DOI for this repository.
+references:
+  - type: article
+    title: >-
+      Archimedean Compensation on the Thales Semicircle: Variance Redistribution,
+      Harmonic Dynamics, and the Two Structural Parameters
+    authors:
+      - family-names: "De Jesús"
+        given-names: Elias
+        orcid: "https://orcid.org/0009-0007-0190-9143"
+    year: 2026
+    notes: >-
+      Revision 3, February 2026. The second audited source, supplying the
+      binary-partition geometry (a + b = 1, h = sqrt(ab), L, D, R, eta). No DOI is
+      recorded here because none is documented in the local project.
