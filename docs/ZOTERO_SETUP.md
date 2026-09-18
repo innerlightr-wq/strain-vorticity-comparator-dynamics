@@ -119,15 +119,51 @@ With Zotero running and the local API enabled:
 Do not re-import per subcollection: each Connector import creates new items, so importing
 the ten subsets would produce 65 items instead of 25 memberships of the same 25.
 
-## 6. Tags and notes
+## 6. Tags
 
-Not applied. The per-claim commentary that Zotero item notes would carry lives in
+**Applied.** Six tags, and no others, mirror the novelty matrix in
+[`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md) §10:
+
+| tag | items |
+|---|---|
+| `classical` | 21 |
+| `closest-prior-art` | 7 |
+| `known-reparameterized` | 4 |
+| `new-derivation-known-ingredients` | 3 |
+| `negative-result-not-found` | 2 |
+| `uncertain-more-search` | 1 |
+
+**What a tag means.** A tag records the role that *source* plays in the novelty matrix —
+the classification of the claim it is the prior art for — not a judgement about the source
+itself. `classical` on `BuariaPumir2023`, for instance, means the claim it bears on (the
+local-isotropic / nonlocal-deviatoric split of the pressure Hessian) is classical because
+that paper states it.
+
+**Items may carry several tags**, because a source can be the prior art for claims of
+different classifications. `AshurstEtAl1987`, `WolkowiczStyan1980`, `CarboneWilczek2022`
+and `ZhouYang2023` each carry three. The counts above therefore sum past 25, while the
+library still holds 25 distinct items; every item carries at least one tag.
+
+**`apparently-distinct` was intentionally not created.** It is one of the six permitted
+classifications in the review, but no audited claim received it — the one result that
+survived the prior-art comparison is recorded as *negative result not found in review*, and
+is tagged `negative-result-not-found`. Creating an empty `apparently-distinct` tag would
+imply a claim that the audit does not make.
+
+**`closest-prior-art`** marks the seven sources whose relationship to this work most
+directly constrains how it must be worded: the five in subcollection
+*09 — Novelty Uncertain / Read Closely* (`CarboneWilczek2022`, `CarboneIovienoBragg2020`,
+`ZhouYang2023`, `WolkowiczStyan1980`, `LiuEtAl2016`) plus `BuariaPumir2023` and
+`AshurstEtAl1987`.
+
+## 6a. Notes
+
+No item notes were written. The per-claim commentary they would carry lives in
 [`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md) — §1 states what each item is cited for,
-§§2–9 hold the prior-art comparison, and §10 is the novelty matrix. To mirror the matrix
-in Zotero, the useful tags are `classical`, `known-reparameterized`,
-`new-derivation-known-ingredients`, `apparently-distinct`, `negative-result-not-found`,
-`uncertain-more-search`, plus `closest-prior-art` on the five items in subcollection 09
-and on `BuariaPumir2023` and `AshurstEtAl1987`.
+§§2–9 hold the prior-art comparison, and §10 is the novelty matrix. One child note exists
+in the library and was not authored here: the `note` field of the `HuntWrayMoin1988` BibTeX
+record ("Report CTR-S88; no DOI assigned") imported as a child of that item, which is why
+the library reports 26 items in total and 25 top-level bibliographic ones.
 
 ## 7. PDFs
 
