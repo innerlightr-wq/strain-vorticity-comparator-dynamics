@@ -180,10 +180,11 @@ Its outcome, compressed:
 No reviewed source contradicts a computed result here; the 179 symbolic checks are
 unaffected, and the changes made were to framing and attribution.
 
-**Zotero, which the review was specified to use, is not installed on this machine**;
-see [`docs/ZOTERO_SETUP.md`](docs/ZOTERO_SETUP.md) for what that blocked, how the
-bibliography was verified instead, and how to reconstruct the intended library in one
-import.
+The bibliography was verified against publisher metadata by DOI content negotiation, and
+subsequently loaded into Zotero, whose stored records agree with it on all 25 entries
+(0/25 discrepancies), so no citation here was revised as a result. The library structure
+and the local-API procedure are documented in
+[`docs/ZOTERO_SETUP.md`](docs/ZOTERO_SETUP.md).
 
 ## Layout
 

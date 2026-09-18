@@ -13,12 +13,14 @@ statements. This is a targeted prior-art search in the velocity-gradient-dynamic
 literature, not a systematic review: absence of a prior result here means *not found
 in the sources reviewed*, never *does not exist*.
 
-**Zotero.** The task specified Zotero as the bibliography workspace. **Zotero is not
-installed on this machine** — no application, no data directory, no local API on port
-23119, and no Zotero tooling available to this session. The intended collection and
-tag structure, and how to reconstruct it in one import, is recorded in
-[`ZOTERO_SETUP.md`](ZOTERO_SETUP.md); `../references.bib` is directly importable and
-carries the same organisation in its comments.
+**Zotero.** The review itself was carried out without Zotero, which was not installed at
+the time; the bibliography was verified instead against publisher metadata by DOI content
+negotiation. Zotero 10.0.3 was installed afterwards, on 18 September 2026, and the library
+was then built from this same verified bibliography: 25 items in a
+`Strain–Vorticity Comparator Dynamics` collection with ten subcollections. Zotero's stored
+metadata agrees with `../references.bib` on all 25 records — DOI, year, volume, pages and
+journal, 0/25 discrepancies — so nothing in this review was revised as a result. Details,
+including the local-API write flow, are in [`ZOTERO_SETUP.md`](ZOTERO_SETUP.md).
 
 ---
 
