@@ -2,7 +2,9 @@
 
 > *Reproduced verbatim from the audit run that produced it; only file paths have
 > been updated to this repository's layout. Statements of the form "nothing outside
-> this directory was modified" refer to that original run.*
+> this directory was modified" refer to that original run. Two later additions are
+> marked as such and dated: bracketed editorial notes, and a prior-work addendum at the
+> end of the file.*
 
 Continuation of `reports/xi-evolution-audit.md` (classification **B**), itself continuing
 `docs/comparator-results.md` (**B**) and the parent audit `reports/allocation-audit.md` (**A**). Nothing outside
@@ -309,6 +311,12 @@ coercive property can be discussed.
 
 ## 17. What is genuinely new
 
+> *Editorial note added September 2026:* "new" here means **new relative to the two
+> audited manuscripts and the earlier audits**, which is what this section was written to
+> assess. For the comparison against the published literature — where most of these items
+> are classical or reparameterizations — see the prior-work addendum at the end of this
+> report and [`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md).
+
 1. **The product-rule correction and the retraction it forces.** `α = 1` does not
    cancel the pressure; the surviving term is `−2∫ξ S:H_dev dx`. The previous audit's
    §19 recommendation is withdrawn.
@@ -387,3 +395,36 @@ not because we believe it will work.
 
 No figures: every result here is a table or an identity, and no chart would add to
 them. See `../README.md` for the full repository layout.
+
+---
+
+## Prior-work addendum (added September 2026, after a literature review)
+
+Added after the report above, which is otherwise unchanged. Full audit:
+[`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md) §8; records:
+[`../references.bib`](../references.bib).
+
+* **`∫S:H_dev dx = 0` is classical.** It is the identity behind Betchov's relation
+  (Betchov 1956) and a member of a family that has since been completely classified:
+  Carbone & Wilczek (2022) prove the Betchov constraints are the *only* homogeneity
+  constraints for incompressible isotropic velocity-gradient fields, and state that the
+  same method yields relations involving the pressure Hessian and viscous stresses;
+  Zhou & Yang (2023) derive and test mixed moment constraints coupling the velocity
+  gradient to `H`, including `⟨tr(m h^p m)⟩ = −½⟨(tr m²)²⟩`.
+* **The classification in §7 was not found in the literature reviewed.** The prior
+  results above classify *static moment identities*; §7 asks which functionals of the two
+  sector energies have *time evolution* exactly free of `H_dev`. These are adjacent but
+  distinct questions, and as far as this review could determine Carbone & Wilczek (2022)
+  does not imply §7. The correct public wording is therefore **"no equivalent
+  classification result was identified in the literature reviewed"** — never "the first
+  proof" — and it must travel with its three caveats: the proof uses standard
+  integration-by-parts machinery; necessity holds only under the stated two-region
+  nondegeneracy; and it sits beside a published completeness theorem that is more general
+  in its own domain.
+* **The weight identity and its conditional corollary are standard machinery.**
+  Integrating by parts twice is elementary calculus, and the loss of homogeneity
+  identities under conditioning is well understood — it is why those identities are
+  stated for homogeneous averages. Conditional pressure-Hessian statistics are routine
+  (Buaria & Pumir 2023; Yang et al. 2024).
+* Verdict **E** stands, and the retraction in the headline stands. No number changed and
+  all 30 + 11 + 7 checks are unaffected.

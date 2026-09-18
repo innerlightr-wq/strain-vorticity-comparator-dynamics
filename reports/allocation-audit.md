@@ -2,7 +2,9 @@
 
 > *Reproduced verbatim from the audit run that produced it; only file paths have
 > been updated to this repository's layout. Statements of the form "nothing outside
-> this directory was modified" refer to that original run.*
+> this directory was modified" refer to that original run. Two later additions are
+> marked as such and dated: bracketed editorial notes, and a prior-work addendum at the
+> end of the file.*
 
 # Classification: **A — pure reparameterization**
 
@@ -242,6 +244,12 @@ Full list in `FAILURES_AND_COUNTEREXAMPLES.md`. The load-bearing failures:
 
 ## 5. What genuinely new insight, if any, emerged
 
+> *Editorial note added September 2026:* "new" here means **new relative to the two
+> audited manuscripts and the earlier audits**, which is what this section was written to
+> assess. For the comparison against the published literature — where most of these items
+> are classical or reparameterizations — see the prior-work addendum at the end of this
+> report and [`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md).
+
 Nothing that overturns either paper. Five statements that are, as far as we can tell,
 not in either manuscript, all elementary and all exact:
 
@@ -339,3 +347,30 @@ forced (§1.9), and the note that `2/3` is not `0.68233` (F9).
 
 Each script exits non-zero if any of its own checks fail. Raw output is in
 `results/*.json`; sampled fields in `results/*.npz`; figures in `figures/`.
+
+---
+
+## Prior-work addendum (added September 2026, after a literature review)
+
+Added after the report above, which is otherwise unchanged. See
+[`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md) for the full audit and
+[`../references.bib`](../references.bib) for verified records.
+
+* `ζ` is an affine rescaling of the second invariant `Q` (Hunt, Wray & Moin 1988) and is
+  **exactly** `2Ω − 1` for the Ω vortex-identification measure of Liu et al. (2016); in
+  two dimensions it reparameterizes the Okubo–Weiss discriminant (Okubo 1970;
+  Weiss 1991). Verdict **A** is therefore reinforced, not weakened: the coordinate the
+  Thales layer reduces to was already published.
+* The independence of alignment from the magnitude coordinates — §2 of this report — is
+  classical, the founding observation of the alignment literature (Ashurst et al. 1987;
+  reviews: Meneveau 2011; Johnson & Wilczek 2024). The exact witnesses here demonstrate
+  it inside these coordinates; they do not establish it.
+* The sharp constant `4√2/9` was not located in the reviewed literature, but it is an
+  elementary optimization over two classical ingredients (the alignment bound of
+  Wolkowicz & Styan 1980 and the normalization identity). **No priority is claimed**, and
+  a prior appearance would not be surprising.
+* `⟨E_S⟩ = ⟨E_W⟩` for homogeneous flow, used in §2, is a classical homogeneity identity
+  (Betchov 1956), now completely classified by Carbone & Wilczek (2022).
+
+No result in the report is contradicted by the reviewed literature, and no number
+changed.

@@ -89,15 +89,17 @@ universal scalar threshold or corridor follows from it.
 ### What the paper is careful about
 
 Unusually so, and this shaped the audit's standard. It states plainly that `ζ` is an
-affine rescaling of `Q` and of the unregularized Omega method, and in 2D a
-reparametrization of Okubo–Weiss; that the alignment bound is a kinematic identity,
+affine rescaling of `Q` (Hunt, Wray & Moin 1988) and of the unregularized Omega method
+(Liu et al. 2016) — indeed `ζ = 2Ω − 1` exactly — and in 2D a reparametrization of
+Okubo–Weiss (Okubo 1970; Weiss 1991); that the alignment bound is a kinematic identity,
 not a threshold; that `⟨P⟩ > 0` is an empirical regularity of developed turbulence,
 not a theorem; that a local `P/ε_ω` ratio has no invariant meaning without the
 transport term; that the OpenAI forced-blowup construction is used as structural
 context only, with the sign of `σ_eff` along its core explicitly left open; and, in
 Remark 4.4, that collapsing three alignment cosines into the single number `A`
 discards exactly the "which eigenvector" question that has been the interesting one
-since Ashurst et al. (1987).
+since Ashurst et al. (1987); see also the reviews of Meneveau (2011) and Johnson &
+Wilczek (2024).
 
 It also records a prior negative result: §7.2 argues that the author's binary-partition
 ("Two-Face Bridge") geometry is insufficient for the **production/dissipation**
@@ -115,7 +117,9 @@ strain/rotation energy split — so §7.2 does not already settle it. On that pa
   Audit 2 §9.)
 * Optimizing the allocation gives the sharp pointwise bound
   `ω·Sω ≤ (4√2/9)‖∇u‖³_F`, attained iff `ζ = 1/3`, `S` axisymmetric, `ω` on its
-  distinct eigenvector. Elementary, possibly known; no priority claimed.
+  distinct eigenvector. Elementary, possibly known; the subsequent prior-art search did
+  not locate it, and no priority is claimed
+  ([`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md) §4).
 * The **Burgers vortex core saturates the paper's own alignment bound exactly**:
   `A = √(2/3)` on the axis for every `a`, `Γ`, `ν`. And in self-similar coordinates
   `ζ` and `A` are exactly `a`-independent while `P ∝ a³` — which sharpens the paper's
@@ -127,7 +131,14 @@ strain/rotation energy split — so §7.2 does not already settle it. On that pa
   invariant `s`.
 * The paper's "no corridor found" conclusion is reproduced and extended to the joint
   coordinate: the admissible set of `(ζ, A)` is a full rectangle, so `ζ` imposes no
-  constraint on alignment whatsoever.
+  constraint on alignment whatsoever. The independence itself is classical — it is why
+  the alignment literature exists — and what is added is the exact demonstration in
+  these coordinates.
+
+A claim-by-claim comparison of all of the above against the published literature,
+including which items are classical and which are reparameterizations, is in
+[`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md); the verified bibliography is
+[`../references.bib`](../references.bib).
 
 ---
 

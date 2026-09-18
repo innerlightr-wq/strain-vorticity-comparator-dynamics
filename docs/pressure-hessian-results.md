@@ -9,6 +9,14 @@ results in one place, in the order in which they constrain each other.
 Conventions as in [`../README.md`](../README.md). `H := Hess(p)`,
 `H_dev := H − (tr H/3)I`.
 
+Prior-art classification of every statement below is in
+[`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md) §§6–9; citation keys refer to
+[`../references.bib`](../references.bib). In short: the sector equations, the
+pressure-blindness of the vorticity sector, and the local-isotropic /
+nonlocal-deviatoric split of `H` are **classical**; the closed form of `Dξ/Dt` is a
+**new derivation of known ingredients**; and the classification in §5 is the only
+result for which no equivalent was identified in the literature reviewed.
+
 ---
 
 ## 1. Where the pressure can and cannot enter
@@ -22,11 +30,14 @@ DW/Dt = −(SW + WS)       + νΔW          ← no H
 
 **The vorticity sector is exactly pressure-blind**, because `Hess(p)` is symmetric and
 the antisymmetric sector sees only antisymmetric parts — equivalently `curl grad p = 0`.
+This is classical and is standard background in the velocity-gradient literature
+(Meneveau 2011; Johnson & Wilczek 2024).
 Verified numerically by perturbing `H` arbitrarily: `D E_W/Dt` does not move
 (`< 1e-10`).
 
 Contracting gives the two sector balances, coefficient-for-coefficient against the
-textbook forms:
+textbook forms — the coupled vorticity / rate-of-strain system studied by
+Nomura & Post (1998):
 
 ```
 D E_W/Dt = P + 2ν W:ΔW
@@ -37,6 +48,13 @@ D E_S/Dt = −2 tr(S³) − P/2 − 2 S:H_dev + 2ν S:ΔS
 the strain sector, with coefficient `−2`.
 
 ## 2. Only the deviatoric part acts — and that is the nonlocal part
+
+The decomposition of `H` into a **local isotropic** part, fixed pointwise by
+`Δp = E_W − E_S`, and a **nonlocal deviatoric** part requiring the Poisson solve, is
+classical: it is what restricted Euler discards (Vieillefosse 1982; Cantwell 1992), and
+Buaria & Pumir (2023) state it in exactly these terms and measure the two parts'
+opposite effects on vortex stretching. Nothing below adds to that split; what follows is
+its consequence for the comparator.
 
 `S:(tr H/3)I = (tr H/3) tr S = 0` for incompressible flow, so `S:H = S:H_dev`
 identically. What drops out is precisely the part that is *locally computable*:
@@ -74,6 +92,13 @@ Reading of the three groups:
 * **Nonlocal.** One scalar. Writing `S:H_dev = B‖S‖_F‖H_dev‖_F`, the term is
   `B‖H_dev‖_F/‖S‖_F`: structurally parallel to the alignment term `A`, but its
   magnitude factor is unbounded and nonlocal, whereas `|A| ≤ √(2/3)`.
+  **This is not a reduction of the pressure Hessian.** Any scalar observable sees one
+  contraction of `H`, so arriving at one scalar is a property of having chosen a scalar
+  observable. The genuine dimensional reduction of the anisotropic pressure Hessian is
+  Carbone, Iovieno & Bragg (2020), who use a gauge symmetry to confine its dynamical
+  activity to two-dimensional manifolds — a substantially stronger statement about the
+  tensor itself; Yang et al. (2024) additionally give an approximate closed form in
+  strong-vorticity regions.
 * **Viscous.** Requires second derivatives, so it is not a function of the
   velocity-gradient state at all. It vanishes in the Euler limit; the pressure term
   does not.
@@ -114,8 +139,13 @@ On a periodic (or decaying) domain, `∂_i∂_j S_ij = Δ(div u) = 0`, hence
 ∫ S:H_dev dx = ∫ p ∂_i∂_j S_ij dx = 0        (exactly; verified to 1e-17–1e-18)
 ```
 
-This is the identity behind Betchov's relation and the pressure-free integrated strain
-balance. It tempts the conclusion that weighting the `ξ` equation by `E_S` and
+This is the identity behind Betchov's relation (Betchov 1956) and the pressure-free
+integrated strain balance. It is a member of a classified family: Carbone & Wilczek
+(2022) prove that the Betchov constraints are the *only* homogeneity constraints for
+incompressible isotropic velocity-gradient fields and note that the same method yields
+relations involving the pressure Hessian, and Zhou & Yang (2023) derive and test mixed
+moment constraints coupling the velocity gradient to `H`. The vanishing integral above
+should be read as classical, not as a result of this work. It tempts the conclusion that weighting the `ξ` equation by `E_S` and
 integrating removes the obstruction. **That conclusion is false**, and audit 4 retracts
 it: the weight evolves, and `ξ` itself depends on `E_S`. Carrying the product rule,
 
@@ -146,7 +176,11 @@ spatially constant weights and nothing else.** Two corollaries:
   it reintroduces the pressure;
 * an indicator is a non-constant weight, so **conditional and regional comparator
   statistics are obstructed too**, by a pure boundary term. Measured over a half-box,
-  over `{ξ > 0}`, and over `{E_S > median}`: `1.4 %`, `1.3 %`, `0.6 %`.
+  over `{ξ > 0}`, and over `{E_S > median}`: `1.4 %`, `1.3 %`, `0.6 %`. This is standard
+  integration-by-parts machinery, and the loss of homogeneity identities under
+  conditioning is why those identities are stated for homogeneous averages; conditional
+  pressure-Hessian statistics are routine in the literature (Buaria & Pumir 2023;
+  Yang et al. 2024).
 
 ## 5. The impossibility result (scoped)
 
@@ -158,7 +192,13 @@ spatially constant weights and nothing else.** Two corollaries:
 > the **enstrophy density alone**, and therefore blind to the comparator.
 
 Sufficiency is exact. Necessity is established under an explicit two-region
-nondegeneracy and verified for every weight and exponent tested. The theorem's content
+nondegeneracy and verified for every weight and exponent tested. **No equivalent
+classification result was identified in the literature reviewed.** The adjacent prior
+work classifies *static moment identities* — Carbone & Wilczek (2022) completely, for
+homogeneous isotropic fields — whereas the statement here concerns which functionals
+have *time evolution* free of `H_dev`. These are different questions, and as far as this
+review could determine the former does not imply the latter; but the result follows from
+standard machinery, and no priority or primacy is claimed for it. The theorem's content
 is really a converse: `Dω/Dt = Sω` has no pressure term, so any functional of `ω`
 alone is automatically pressure-free — the result is that within this class there is
 **nothing else**.

@@ -63,7 +63,10 @@ The audit's organising picture, in the order in which information is added:
 * **scale** — `‖∇u‖_F`;
 * **allocation** — the symmetric magnitude split `ζ` (equivalently `h`, `D`, `R`, `η`);
 * **comparator** — the signed orientation of that split, `σ = sign ζ` or the rapidity
-  `ξ = artanh ζ`, which is what the symmetric altitude family discards;
+  `ξ = artanh ζ`, which is what the symmetric altitude family discards. "Comparator"
+  and "rapidity" are this repository's terms; in the standard vocabulary these are the
+  *sign of the second invariant* and the *logarithmic strain–rotation ratio*
+  `½log(E_W/E_S)` — see [`docs/LITERATURE_REVIEW.md`](docs/LITERATURE_REVIEW.md) §12;
 * **alignment** — `A = ω·Sω/(‖S‖_F|ω|²)`, the classical vortex-stretching alignment;
 * **nonlocal pressure environment** — the single deviatoric scalar `S:H_dev/E_S`,
   which is not a coordinate of the fluid element at all.
@@ -131,27 +134,64 @@ statement and its scope.
 
 ### What is not new
 
-`ζ` is an affine rescaling of the second invariant `Q_HWM`; `A` is the classical
-vortex-stretching alignment (Betchov 1956; Ashurst et al. 1987); `|A| ≤ √(2/3)`
-specializes Wolkowicz–Styan; `∫S:H_dev = 0` is the identity behind Betchov's relation;
-`∫ψ̃(E_W)` are the standard vorticity `L^p` norms. The Thales coordinates are exact
-functions of `ζ`, and `ξ` is informationally equivalent to it. The derived identities
-above are elementary, and **no priority is claimed** for any of them.
+`ζ` is an affine rescaling of the second invariant `Q` (Hunt, Wray & Moin 1988) and is
+*exactly* `2Ω − 1` for the Ω vortex-identification measure of Liu et al. (2016), so the
+rapidity `ξ = artanh ζ = ½log(E_W/E_S)` is the **logit of a published measure** and
+carries identical information. `A` is the classical vortex-stretching alignment
+(Betchov 1956; Ashurst et al. 1987); `|A| ≤ √(2/3)` specializes Wolkowicz & Styan
+(1980); the two sector equations are standard (Nomura & Post 1998); the split of the
+pressure Hessian into a **local isotropic** and a **nonlocal deviatoric** part is
+classical and is stated in those terms by Buaria & Pumir (2023); `∫S:H_dev = 0` belongs
+to the homogeneity-constraint family classified by Carbone & Wilczek (2022) and Zhou &
+Yang (2023); `∫ψ̃(E_W)` are the standard vorticity `L^p` norms. The Thales coordinates
+are exact functions of `ζ`. The derived identities above are elementary, and **no
+priority is claimed** for any of them.
 
 ### Open questions
 
 Listed at the end of each report. The principal ones: whether the sharp constant
-`4√2/9` and the closed form of `Dξ/Dt` have prior appearances in the
-velocity-gradient literature; whether the `ζ`–`A` statistical coupling seen in the DNS
-(0.5–1.2 % of `var(A)`) survives at higher Reynolds number; and whether the
-impossibility result is already folklore, since it follows quickly from the
-pressure-free vorticity equation.
+`4√2/9` has a prior appearance (it is an elementary optimization over two classical
+ingredients, so a prior appearance is likely); whether the `ζ`–`A` statistical coupling
+seen in the DNS (0.5–1.2 % of `var(A)`) survives at higher Reynolds number; and whether
+the negative result follows from the completeness theorem of Carbone & Wilczek (2022)
+under a reading this review did not find.
+
+## Relation to prior work
+
+A prior-art audit was carried out **after** the computational work, specifically in
+order to reduce novelty claims where the literature warrants it. It is in
+[`docs/LITERATURE_REVIEW.md`](docs/LITERATURE_REVIEW.md), with a claim-by-claim
+novelty matrix (§10) and verified bibliography in
+[`references.bib`](references.bib) (25 entries, 23 with publisher DOIs).
+
+Its outcome, compressed:
+
+| result | classification after review |
+|---|---|
+| `ζ`, `ξ` as a strain–rotation coordinate | **known / reparameterized** — `ξ` is the logit of the Ω measure |
+| the sign-blindness of the altitude family | **known / reparameterized** — the standard invariants are signed for this reason |
+| the production factorization `‖∇u‖³ g(ζ) A` | **new derivation of known ingredients** — a one-line rearrangement |
+| the sharp constant `4√2/9` | **uncertain — more search needed**; no priority claimed |
+| alignment independence from `(ζ, h, …)` | **classical** — the founding observation of the alignment literature |
+| the closed form of `Dξ/Dt` | **new derivation of known ingredients** — half the difference of two standard sector equations |
+| "a single scalar pressure obstruction" | **known / reparameterized** — coordinate compression; the genuine rank reduction of the anisotropic pressure Hessian is Carbone, Iovieno & Bragg (2020) |
+| the pressure-free functional classification | **no equivalent classification result was identified in the literature reviewed** — adjacent to, and not implied by, Carbone & Wilczek (2022); conditional on the stated nondegeneracy |
+
+No reviewed source contradicts a computed result here; the 179 symbolic checks are
+unaffected, and the changes made were to framing and attribution.
+
+**Zotero, which the review was specified to use, is not installed on this machine**;
+see [`docs/ZOTERO_SETUP.md`](docs/ZOTERO_SETUP.md) for what that blocked, how the
+bibliography was verified instead, and how to reconstruct the intended library in one
+import.
 
 ## Layout
 
 ```
 docs/      source-paper notes, derivations, canonical flows, counterexamples,
-           protocol, environment, special states, comparator and pressure results
+           protocol, environment, special states, comparator and pressure results,
+           literature review and prior-art audit
+references.bib  verified bibliography (25 entries, 23 DOIs)
 src/       coordinate algebra + every exact/symbolic and ensemble-numeric script
 experiments/dns_checks/        Navier-Stokes solver and DNS-based measurements
 experiments/synthetic_fields/  random-field ensembles, restricted Euler, redistribution

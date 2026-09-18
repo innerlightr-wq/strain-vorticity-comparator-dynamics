@@ -268,10 +268,15 @@ Outcome **C** is excluded by that theorem. Outcome **A** is excluded *relative t
 altitude family* — the comparator is not a reparameterization of `h`, it is
 strictly additional — but note the honest caveat in §14. Outcome **D** is not claimed.
 
-## 13. What is genuinely new
+## 13. What is new relative to the audited manuscripts
 
-Structural, exact, and (to our knowledge) not stated in either manuscript or the
-parent audit:
+Exact statements not present in either manuscript or the parent audit. A subsequent
+prior-art audit ([`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md)) classifies items 1–3
+as **new derivations of known ingredients** — elementary rearrangements of definitions
+that are classical (Ashurst et al. 1987; Wolkowicz & Styan 1980; Hunt, Wray & Moin
+1988) — and item 4 as a property of a non-standard imported coordinate rather than a
+result about turbulence. None of them should be read as a new mechanism or a new
+degree of freedom.
 
 1. **The unique even × odd factorization** `g(ζ) = 2h^{3/2} e^{ξ/2}`, hence
    `P = ‖∇u‖³ · 2h^{3/2} · e^{ξ/2} · A` — the hypothesis's four-layer schematic
@@ -295,15 +300,30 @@ Stated plainly, because it is the easiest thing to get wrong here:
 
 * **The comparator is not a new coordinate for this system.** `C(a,b) = b − a` *is*
   `ζ`, the coordinate the parent audit already used, and `σ = sign ζ = sign Q_HWM` is
-  the sign of the classical `Q`-criterion. Nothing in §5 adds information to `ζ`;
-  it restores information that the *altitude family* discarded. Relative to `ζ`,
-  the comparator layer is empty.
+  the sign of the classical `Q`-criterion (Hunt, Wray & Moin 1988). Nothing in §5 adds
+  information to `ζ`; it restores information that the *altitude family* discarded.
+  Relative to `ζ`, the comparator layer is empty.
+* **The rapidity is a published measure in logarithmic form.** `ζ = 2Ω − 1` exactly,
+  for the Ω vortex-identification measure of Liu et al. (2016), so
+  `ξ = artanh ζ = ½log(E_W/E_S)` is the **logit of `Ω`** and carries identical
+  information. Its advantages are presentational only: additivity under sector-ratio
+  multiplication, and a Jacobian `dξ/dζ = 1/(1−ζ²)` that is regular where the
+  symmetric altitude coordinate degenerates.
+* **Sign-blindness of the altitude family is not a discovery about the field.** Every
+  standard strain–rotation discriminant — `Q`, `Δ`, `Ω`, Okubo–Weiss — is signed by
+  construction, precisely because the sign is the decisive part. §4 is best read as a
+  consistency check on the imported geometry.
 * **The factorization adds no information.** `(h, ξ) ↔ ζ` is a bijection, so
   `P = ‖∇u‖³ 2h^{3/2} e^{ξ/2} A` and `P = ‖∇u‖³ g(ζ) A` are the same identity in
   different letters. Its value is organizational: it shows *where* the Archimedean
   altitude sits (the even half, with exponent 3/2) and *exactly what it omits*.
-* **`A` is classical.** It is the vortex-stretching alignment of Betchov (1956) and
-  Ashurst et al. (1987), normalized; the parent audit already said so.
+* **`A` is classical**, and so is its independence from the magnitudes. `A` is the
+  vortex-stretching alignment of Betchov (1956) and Ashurst et al. (1987), normalized;
+  the parent audit already said so. That production is *not* determined by magnitudes
+  alone — the substance of §6 and §7 — is the founding observation of that alignment
+  literature and of the reviews that follow it (Meneveau 2011; Johnson & Wilczek 2024).
+  What §§6–7 add is an exact demonstration inside these coordinates, not the fact
+  itself.
 * **No new mechanism.** Nothing here is a dynamical mechanism; every statement is
   kinematic algebra plus measurements on existing fields.
 
@@ -355,6 +375,7 @@ either sector's rate is.
 | figure script | `src/figures_comparator.py` |
 | results | `results/comparator_exact.json`, `results/comparator_numeric.json` |
 | figure | `figures/fig_comparator_split.png` |
+| prior-art audit | [`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md); bibliography in `../references.bib` |
 
 Reuses `src/svcore.py` and `src/generators.py`; see `../README.md` for the full
 repository layout.

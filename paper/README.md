@@ -6,13 +6,44 @@ cannot drift apart. Nothing here is a draft.
 
 ## Is there a paper here?
 
-Honest answer: at most a short note, and only if it is framed as a negative /
-clarifying result. The audit produced no new estimate, inequality, monotonicity
-result, coercive quantity, or closure theorem, and every exact statement in it is
-elementary algebra applied to standard equations. What it does have is a coherent
-chain of three sharp negative results and one clean structural identity, all
-machine-checked — which is publishable as a note, and is not publishable as a
-mechanism.
+**Assessment after the literature review: outcome C — repository documentation only.**
+(A = standalone paper justified; B = short note; C = repository note/documentation only;
+D = not determinable.) Recorded September 2026, after the prior-art audit in
+[`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md); this supersedes the
+earlier reading of "at most a short note", which was written before that audit.
+
+The reasoning is the relationship to prior work, not a judgement about effort:
+
+* Items 3 and 4 below are **classical or reparameterizations**. `ζ` is an affine
+  rescaling of `Q` (Hunt, Wray & Moin 1988) and exactly `2Ω − 1` for the published Ω
+  measure (Liu et al. 2016), so `ξ` is its logit; the sign-blindness of a symmetric
+  coordinate is the reason every standard discriminant is signed; and the independence of
+  alignment from the magnitudes is the founding observation of the alignment literature
+  (Ashurst et al. 1987).
+* Item 1 is an **immediate combination of two standard sector equations**
+  (Nomura & Post 1998), and its most striking-sounding component — the reduction of the
+  pressure coupling to one scalar — is coordinate compression. The genuine reduction of
+  the anisotropic pressure Hessian is already published, and is stronger:
+  Carbone, Iovieno & Bragg (2020).
+* Item 2 is the only surviving candidate, and it is small: `∫S:H_dev = 0` is classical
+  and now completely classified (Carbone & Wilczek 2022; Zhou & Yang 2023); the
+  classification itself follows from standard integration by parts; necessity is
+  conditional on a stated nondegeneracy rather than proved; and it sits beside a
+  published completeness theorem that is more general in its own domain.
+
+One conditional classification in a narrow functional class, provable by standard
+machinery and adjacent to a stronger published theorem, is a documented repository
+result — not a paper. It is fully stated in
+[`../reports/weighted-comparator-audit.md`](../reports/weighted-comparator-audit.md) §7
+and [`../docs/pressure-hessian-results.md`](../docs/pressure-hessian-results.md) §5,
+which is the appropriate venue.
+
+**What would move this to B.** Removing the nondegeneracy condition so that necessity
+holds unconditionally for all incompressible flows; *or* establishing that the
+classification does not follow from Carbone & Wilczek (2022) by a reading this review
+missed, and positioning it explicitly against that theorem; *or* extending the class
+beyond `Φ(E_S,E_W)` far enough that the obstruction becomes a statement about
+functionals of the velocity gradient generally. Nothing weaker justifies a submission.
 
 ## The defensible claim set
 
@@ -34,10 +65,11 @@ In descending order of strength:
    family is two-to-one in `ζ`, discarding exactly one bit, with the exact inverse
    `ζ = σ√(1−4h²)` and its conditioning `dζ/dh = −4h/ζ`.
 
-Items 3 and 4 are elementary and may well be known; they should be presented as
-observations with no priority claim. Item 1 is a recombination of two textbook sector
-equations. Item 2 is the only statement that would carry a paper on its own, and it
-is a negative one.
+Items 3 and 4 are elementary and are classified as known / reparameterized or classical
+by the literature review; they carry no priority claim. Item 1 is a recombination of two
+textbook sector equations. Item 2 is the only statement for which no equivalent was
+identified in the reviewed literature — and, per the assessment above, it is not enough
+for a standalone paper.
 
 ## What must not appear
 
@@ -61,16 +93,29 @@ numerical confirmations; an explicit statement of what is classical. The
 factorization and the sharp bound belong in a preliminaries section, not in the
 abstract.
 
-Before drafting, two things should be checked that this audit did not:
+## The two pre-drafting checks: run, and their outcome
 
-1. a literature search for the constant `4√2/9` and for the closed form of `Dξ/Dt` —
-   both are elementary enough that prior appearances are likely;
-2. whether the impossibility theorem, in the form "pressure-free ⟹ vorticity-only",
-   is already standard folklore in the velocity-gradient-dynamics literature. It
-   follows quickly from the pressure-free vorticity equation, so it may be.
+Both were carried out in September 2026
+([`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md)).
 
-If either check finds prior art, the note should cite it and shrink accordingly —
-possibly to nothing, which would be an acceptable outcome.
+1. **`4√2/9` and the closed form of `Dξ/Dt`.** Neither was located in the reviewed
+   sources. Both remain elementary — a two-variable constrained optimization over
+   classical ingredients, and half the difference of two standard logarithmic rates — so
+   no priority is claimed for either, and `4√2/9` is classified *uncertain — more search
+   needed* rather than new.
+2. **Whether "pressure-free ⟹ vorticity-only" is folklore.** No equivalent statement was
+   identified. The closest prior art is a *stronger* theorem about a *different* object:
+   Carbone & Wilczek (2022) prove completeness of the Betchov homogeneity constraints and
+   remark that their method extends to relations involving the pressure Hessian, and
+   Zhou & Yang (2023) derive mixed pressure-Hessian moment constraints. Those classify
+   static moment identities; the statement here concerns a functional's time evolution.
+   The questions are adjacent, and the review could not derive ours from theirs — which is
+   *not* evidence of significance, only of non-identity.
+
+The checks therefore found no prior art that contradicts the results, and also found
+that the framing shrank: see the outcome-C assessment above. Required public wording
+throughout: *"No equivalent classification result was identified in the literature
+reviewed."* Not "the first proof", and not "new" unqualified.
 
 ## Source manuscripts
 
@@ -79,4 +124,9 @@ The two audited papers are listed in [`../CITATION.cff`](../CITATION.cff) under
 [`../docs/strain-paper-notes.md`](../docs/strain-paper-notes.md). Any manuscript
 arising from this repository must cite both, and must state plainly which of their
 claims it supports, which it sharpens, and which it corrects (the Appendix-B residual
-test).
+test). It must also cite the prior art identified in
+[`../docs/LITERATURE_REVIEW.md`](../docs/LITERATURE_REVIEW.md) — at minimum
+Liu et al. (2016), Nomura & Post (1998), Buaria & Pumir (2023),
+Carbone, Iovieno & Bragg (2020), Carbone & Wilczek (2022) and Zhou & Yang (2023) — and
+use the wording recommended in its §10 novelty matrix. Records:
+[`../references.bib`](../references.bib).
